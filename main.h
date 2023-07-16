@@ -4,3 +4,4 @@
 #endif //PROJ_MAIN_H
 
 int create_map();
+int create_window();

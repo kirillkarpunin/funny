@@ -18,24 +18,28 @@ void destroy(int** matrix){
 
 void out(int** matrix){
 
+    FILE* f = fopen("map.txt", "w");
+
     for (int i = 0; i < MAP_SIZE; i++){
         for (int j = 0; j < MAP_SIZE; j++){
 
             switch (matrix[i][j]){
                 case 0:
-                    printf("# ");
+                    fputs("#", f);
                     break;
 
                 case 1:
-                    printf(". ");
+                    fputs(".", f);
                     break;
 
                 case 2:
-                    printf("@ ");
+                    fputs("@", f);
                     break;
             }
 
         }
-        printf("\n");
+        fputs("\n", f);
     }
+
+    fclose(f);
 }

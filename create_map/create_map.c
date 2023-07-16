@@ -12,7 +12,7 @@ int create_map() {
         int j = ( rand() % (MAP_SIZE-2) ) + 1;
 
         if (path_len == 0 && matrix[i][j] == 0){
-            matrix[i][j] = (path_len == 0 ? 2 : 2);
+            matrix[i][j] = (path_len == 0 ? 2 : 1);
             path_len++;
         }
 
