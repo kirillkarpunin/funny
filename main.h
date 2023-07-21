@@ -1,7 +1,10 @@
 #ifndef PROJ_MAIN_H
 #define PROJ_MAIN_H
 
-#endif //PROJ_MAIN_H
+#define SDL_MAIN_HANDLED
 
-int create_map();
-int create_window();
+#include "create_map/create_map.h"
+#include "SDL/sdl_thing.h"
+#include "structs.h"
+
+#endif //PROJ_MAIN_H

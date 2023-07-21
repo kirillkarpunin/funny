@@ -1,7 +1,7 @@
 #include "create_map.h"
 
-int create_map() {
-    int** matrix = create_matrix();
+map* create_map() {
+    map* world = create_struct();
     int path_len = 0;
 
     srand(time(NULL));
@@ -11,12 +11,15 @@ int create_map() {
         int i = ( rand() % (MAP_SIZE-2) ) + 1;
         int j = ( rand() % (MAP_SIZE-2) ) + 1;
 
-        if (path_len == 0 && matrix[i][j] == 0){
-            matrix[i][j] = (path_len == 0 ? 2 : 1);
+        if (path_len == 0 && world->matrix[i][j] == 0){
+
+            world->player_coords = (coords){i, j};
+
+            world->matrix[i][j] = 2;
             path_len++;
         }
 
-        else if (path_len != 0 && matrix[i][j] == 1){}
+        else if (path_len != 0 && world->matrix[i][j] == 1){}
 
         else{
             continue;
@@ -24,7 +27,7 @@ int create_map() {
 
         do {
 
-            int tmp = path(matrix, i, j, &path_len);
+            int tmp = path(world->matrix, i, j, &path_len);
             if (tmp == 1) break;
 
         } while (path_len < PATH_LEN);
@@ -34,7 +37,6 @@ int create_map() {
         }
     }
 
-    out(matrix);
-    destroy(matrix);
-    return 0;
+
+    return world;
 }

@@ -1,12 +1,11 @@
 #ifndef PROJ_CREATE_MAP_H
 #define PROJ_CREATE_MAP_H
 
-#endif //PROJ_CREATE_MAP_H
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "string.h"
 #include <time.h>
+#include "../structs.h"
 
 #define MAP_SIZE 25
 #define PATH_LEN 370
@@ -18,11 +17,13 @@
 #define SOUTH 3
 #define WEST 4
 
+map* create_map();
 
 int* check_directions(int** matrix, int i, int j);
 void go(int d, int* ptr_i, int* ptr_j);
 int path(int** matrix, int i, int j, int* ptr_path_len);
 
-int** create_matrix();
-void destroy(int** matrix);
-void out(int** matrix);
+map* create_struct();
+void destroy_struct(map* world);
+
+#endif //PROJ_CREATE_MAP_H
