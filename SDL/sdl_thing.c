@@ -30,7 +30,6 @@ int create_window(map* world){
         while (SDL_PollEvent(&event))
         {
             close = update(world, &event);
-            if (close) break;
             rend = draw(rend, world);
         }
     }

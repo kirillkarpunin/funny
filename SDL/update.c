@@ -9,55 +9,64 @@ int update(map* world, SDL_Event* event){
     {
         case SDL_KEYDOWN:
         {
+            int ext = 0;
+
             switch (event->key.keysym.sym)
             {
                 case SDLK_UP:
                 {
                     if (j > 0 && world->matrix[i][j-1] != 0){
+
+                        if (world->matrix[i][j-1] == 3) ext = 1;
+
                         world->matrix[i][j] = 1;
 
                         world->player_coords = (coords){i, j-1};
                         world->matrix[i][j-1] = 2;
                     }
-
-                    return 0;
-
+                    return ext;
                 }
 
                 case SDLK_DOWN:
                 {
                     if (j < world->size-1 && world->matrix[i][j+1] != 0){
+
+                        if (world->matrix[i][j+1] == 3) ext = 1;
+
                         world->matrix[i][j] = 1;
 
                         world->player_coords = (coords){i, j+1};
                         world->matrix[i][j+1] = 2;
                     }
-
-                    return 0;
+                    return ext;
                 }
 
                 case SDLK_LEFT:
                 {
                     if (i > 0 && world->matrix[i-1][j] != 0){
+
+                        if (world->matrix[i-1][j] == 3) ext = 1;
+
                         world->matrix[i][j] = 1;
 
                         world->player_coords = (coords){i-1, j};
                         world->matrix[i-1][j] = 2;
                     }
-
-                    return 0;
+                    return ext;
                 }
 
                 case SDLK_RIGHT:
                 {
                     if (i < world->size-1 && world->matrix[i+1][j] != 0){
+
+                        if (world->matrix[i+1][j] == 3) ext = 1;
+
                         world->matrix[i][j] = 1;
 
                         world->player_coords = (coords){i+1, j};
                         world->matrix[i+1][j] = 2;
                     }
-
-                    return 0;
+                    return ext;
                 }
 
                 case SDLK_ESCAPE:

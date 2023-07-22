@@ -9,11 +9,6 @@
 #define OFFSET 5
 #define SQR_SIZE 20
 
-#define UP 1
-#define RIGHT 2
-#define DOWN 3
-#define LEFT 4
-
 int create_window(map* world);
 
 int init(SDL_Window** ptr_win, SDL_Renderer** ptr_rend);

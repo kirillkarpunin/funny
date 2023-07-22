@@ -49,7 +49,10 @@ void go(int d, int* ptr_i, int* ptr_j){
 
 int path(int** matrix, int i, int j, int* ptr_path_len){
 
-    if (*ptr_path_len >= PATH_LEN) return 0;
+    if (*ptr_path_len >= PATH_LEN) {
+        matrix[i][j] = 3;
+        return 0;
+    }
 
     int* directions = check_directions(matrix, i, j);
     int arr_len = directions[4];

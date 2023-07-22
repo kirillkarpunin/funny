@@ -24,6 +24,6 @@ void go(int d, int* ptr_i, int* ptr_j);
 int path(int** matrix, int i, int j, int* ptr_path_len);
 
 map* create_struct();
-void destroy_struct(map* world);
+void destroy(map* world);
 
 #endif //PROJ_CREATE_MAP_H

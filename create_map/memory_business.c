@@ -13,7 +13,7 @@ map* create_struct(){
     return world;
 }
 
-void destroy_struct(map* world){
+void destroy(map* world){
     for (int i = 0; i < MAP_SIZE; i++){
         free(world->matrix[i]);
     }
