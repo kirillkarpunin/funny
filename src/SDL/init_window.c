@@ -4,7 +4,7 @@ data* init_window(){
 
     data* level = malloc(sizeof(data));
 
-    level->win = SDL_CreateWindow("game",
+    level->win = SDL_CreateWindow("A Mazer",
                                        SDL_WINDOWPOS_CENTERED,
                                        SDL_WINDOWPOS_CENTERED,
                                        670, 670, SDL_WINDOW_SHOWN);
