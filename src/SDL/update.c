@@ -96,7 +96,7 @@ int update(map* world, SDL_Event* event, audio* sounds){
 
                 case SDLK_u:
                 {
-                    return 2;
+                    return 3;
                 }
 
                 default:

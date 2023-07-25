@@ -30,6 +30,7 @@ typedef struct data{
     SDL_Window* win;
     SDL_Renderer* rend;
     audio* sounds;
+    SDL_Surface* icon;
 } data;
 
 #endif //PROJ_STRUCTS_H

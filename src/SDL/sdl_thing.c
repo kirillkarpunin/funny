@@ -81,9 +81,9 @@ data* create_window(map* world, data* glob_lev){
         }
     }
 
-    if (close == 2 && world->try != 4)
+    if (close > 1 && world->try != 4)
     {
-        timer(1);
+        if (close == 2) timer(1);
         return level;
     }
     else

@@ -23,5 +23,15 @@ data* init_window(){
         return NULL;
     }
 
+    level->icon = IMG_Load("data/icon.ico");
+    if (level->icon == NULL){
+        printf("icon error: %s\n", SDL_GetError());
+        SDL_DestroyRenderer(level->rend);
+        SDL_DestroyWindow(level->win);
+        return NULL;
+    }
+    SDL_SetWindowIcon(level->win, level->icon);
+    SDL_FreeSurface(level->icon);
+
     return level;
 }

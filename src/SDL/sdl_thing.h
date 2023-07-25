@@ -7,6 +7,7 @@
 #include "../structs.h"
 #include "time.h"
 #include "SDL_mixer.h"
+#include "SDL_image.h"
 
 #define START 25
 #define OFFSET 5
