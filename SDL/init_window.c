@@ -1,24 +1,27 @@
 #include "sdl_thing.h"
 
-int init(SDL_Window** ptr_win, SDL_Renderer** ptr_rend){
-    *ptr_win = SDL_CreateWindow("game",
+data* init_window(){
+
+    data* level = malloc(sizeof(data));
+
+    level->win = SDL_CreateWindow("game",
                                        SDL_WINDOWPOS_CENTERED,
                                        SDL_WINDOWPOS_CENTERED,
                                        670, 670, SDL_WINDOW_SHOWN);
-    if (!(*ptr_win))
+    if (!(level->win))
     {
         printf("error creating window: %s\n", SDL_GetError());
-        return 1;
+        return NULL;
     }
 
     Uint32 render_flags = SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC;
-    *ptr_rend = SDL_CreateRenderer(*ptr_win, -1, render_flags);
-    if (!(*ptr_rend))
+    level->rend = SDL_CreateRenderer(level->win, -1, render_flags);
+    if (!(level->rend))
     {
         printf("error creating renderer: %s\n", SDL_GetError());
-        SDL_DestroyWindow(*ptr_win);
-        return 1;
+        SDL_DestroyWindow(level->win);
+        return NULL;
     }
 
-    return 0;
+    return level;
 }

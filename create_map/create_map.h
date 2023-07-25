@@ -17,7 +17,7 @@
 #define SOUTH 3
 #define WEST 4
 
-map* create_map();
+map* create_map(int try);
 
 int* check_directions(int** matrix, int i, int j);
 void go(int d, int* ptr_i, int* ptr_j);

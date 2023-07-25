@@ -14,11 +14,13 @@ map* create_struct(){
 }
 
 void destroy(map* world){
-    for (int i = 0; i < MAP_SIZE; i++){
-        free(world->matrix[i]);
+    if (world->matrix)
+    {
+        for (int i = 0; i < MAP_SIZE; i++){
+            free(world->matrix[i]);
+        }
+        free(world->matrix);
     }
-    free(world->matrix);
-
     free(world);
 }
 
